@@ -3,7 +3,8 @@ extends CharacterBody2D
 
 const SPEED = 800.0
 const JUMP_VELOCITY = -900.0
-
+const START_POS_X = -622
+const START_POS_Y = 294
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -23,3 +24,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	move_and_slide()
+
+func restart():
+	position.x = START_POS_X  # Reset position
+	position.y = START_POS_Y
+	velocity = Vector2.ZERO    # Stop movement
