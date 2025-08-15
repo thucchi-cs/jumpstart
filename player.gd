@@ -26,6 +26,13 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func restart():
-	position.x = START_POS_X  # Reset position
-	position.y = START_POS_Y
+	#position.x = START_POS_X  # Reset position
+	#position.y = START_POS_Y
+	position = Vector2(0,0)
 	velocity = Vector2.ZERO    # Stop movement
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("colors"):
+		print(position)
+		restart()
